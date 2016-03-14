@@ -69,7 +69,6 @@ void Net::forward(vector<double> &tuple)
 		//for every node in this layer except bias node
 		for(int j=1;j<layers[i].nodes.size();j++)    //0 is bias node
 		{
-			layers[i].nodes[j].update();
 			double sum=0;
 			for(int k=0;k<layers[i-1].nodes.size();k++)
 			{
@@ -77,12 +76,38 @@ void Net::forward(vector<double> &tuple)
 				
 			}
 			layers[i].nodes[j].output=1.0 / (1.0 + exp(-sum));  //sigmoid
+
 		}
 	}
 
 
 }
 
+void Net::backward(vector<double> &res)
+{
+	cout<<"Layer "<<numOfL-1<<" : "<<endl;
+	for(int i=1;i<layers[numOfL-1].nodes.size();i++)  //output layer
+	{
+		double o=layers[numOfL-1].nodes[i].output;
+		layers[numOfL-1].nodes[i].delta=o*(1-o)*(res[i-1]-o);
+		cout<<layers[numOfL-1].nodes[i].delta<<endl;
+	}
 
+	for(int i=layers.size()-2;i>=0;i--)  //for each layer,hidden
+	{
+		cout<<"Layer "<<i<<" : "<<endl;
+		for(int h=1;h<layers[i].nodes.size();h++)
+		{
+			double o=layers[i].nodes[h].output;
+			double sum=0;
+			for(int k=1;k<layers[i+1].nodes.size();k++)
+			{
+				sum+=layers[i+1].nodes[k].delta*layers[i+1].nodes[k].inputWs[h];
+			}
+			layers[i].nodes[h].delta=o*(1-o)*sum;
+			cout<<layers[i].nodes[h].delta<<endl;
+		}
+	}
+}
 
 #endif 

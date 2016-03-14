@@ -15,12 +15,13 @@ class Node{
 public:
 	double output;   //ouput
 	vector<double> inputWs;   //weights of inputs : w0, w1, w2.....
-	vector<double> deltaWs;    //  change of weigths
+	double delta;     //  ¦Ä
 	Node(int numOfInput);
 	void update(); //add delta weigth
 	void printNode();
+	static double learningRate;
 };
-
+double Node::learningRate = 0.05;
 void Node::printNode()
 {
 	cout<<"Weight:";
@@ -37,14 +38,14 @@ Node::Node(int numOfInput)
 	for(int i=0;i<numOfInput;i++)
 	{
 		inputWs.push_back(rand() / double(RAND_MAX) - 0.5);  //initialized with a random weight -0.5~0.5
-		deltaWs.push_back(0);   //initialized with 0
+		
 	}
+	delta=0;
 }
 
 void Node::update()
 {
-	for(int i=0;i<inputWs.size();i++)
-		inputWs[i]+=deltaWs[i];
+
 }
 
 

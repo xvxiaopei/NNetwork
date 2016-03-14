@@ -31,6 +31,10 @@ int main()
 		cout<<res[i]<<endl;	
 	}
 
-
+	vector<double> target;
+	target.push_back(0.5);
+	target.push_back(0.5);
+	target.push_back(0.5);
+	ANN.backward(target);
 	cout<<"Hello World!";
 }
