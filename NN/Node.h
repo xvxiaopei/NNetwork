@@ -17,11 +17,10 @@ public:
 	vector<double> inputWs;   //weights of inputs : w0, w1, w2.....
 	double delta;     //  ¦Ä
 	Node(int numOfInput);
-	void update(); //add delta weigth
 	void printNode();
-	static double learningRate;
+
 };
-double Node::learningRate = 0.05;
+
 void Node::printNode()
 {
 	cout<<"Weight:";
@@ -43,10 +42,6 @@ Node::Node(int numOfInput)
 	delta=0;
 }
 
-void Node::update()
-{
-
-}
 
 
 

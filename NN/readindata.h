@@ -24,7 +24,8 @@ public:
 	int targetAttr;
 	vector<int> remainAttr;
 	vector<vector<string>> data;
-	
+	vector<vector<double>> numdata;   
+	vector<vector<double>> output;
 
 
 	readindata(string dataCon);    //data control file
@@ -32,6 +33,7 @@ public:
 	void printData(bool d=false);          //d= true      print detail data
 	//void printCount(); 
 	void shuffleData();
+	void getNumData();
 	int targetA(){return targetAttr;}
 	vector<vector<string>> attrV(){return attrVal;}
 	vector<vector<string>> getData(){return data;}

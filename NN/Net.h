@@ -44,12 +44,12 @@ Net::Net(const vector<int> net)
 	for(int i=0;i<numOfL;i++)
 	{
 		layers.push_back(Layer());  //add layers
-		cout<<"Made a layer "<<i<<endl;
+		//cout<<"Made a layer "<<i<<endl;
 		for(int j=0;j<=net[i];j++)    //contains a bias input
 		{
 			layers[i].nodes.push_back(Node((i==0||j==-0)?0:net[i-1]+1));  //input layer's node and bias node don't have inputs
 			if(j==0)layers[i].nodes[j].output=1; //bias initialized with 1
-			cout<<"Made a Node in "<<i<<endl;
+			//cout<<"Made a Node in "<<i<<endl;
 		}
 	}
 }
@@ -58,7 +58,7 @@ void Net::forward(vector<double> &tuple)
 {
 	if(tuple.size()!=layers[0].nodes.size()-1) 
 	{
-		cout<<"Invalid input tuple."<<endl;
+		cout<<tuple.size()<<"!= "<<layers[0].nodes.size()-1<<" Invalid input tuple."<<endl;
 		return;
 	}
 

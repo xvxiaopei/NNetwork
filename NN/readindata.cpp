@@ -3,6 +3,47 @@
 
 using namespace std;
 
+
+
+void readindata::getNumData()
+{
+	for(int i=0;i<data.size();i++)
+	{
+		vector<double> atr;
+		vector<double> out;
+
+		for(int j=0;j<numOfAttr;j++)
+		{
+			if(j==targetAttr) 
+			{
+				for(int k=0;k<attrVal[targetAttr].size();k++)
+				{
+					out.push_back(data[i][targetAttr]==attrVal[targetAttr][k]?1:0);
+				}
+			}
+			else
+			{
+				bool t=false;
+				for(int k=0;k<attrVal[j].size();k++)
+				{
+					if(data[i][j]==attrVal[j][k]){atr.push_back((double)k/(attrVal[j].size()-1));t=true;}
+				}
+				/*
+				if(!t) {
+					cout<<i<<"  "<<data[i][j]<<"xxx"<<endl;
+					for(int k=0;k<attrVal[j].size();k++)
+					{
+						cout<<attrVal[j][k]<<" :"<<(data[i][j]==attrVal[j][k]?"true":"false")<<endl;
+					}
+					system("pause");
+				}*/
+			}
+		}
+		numdata.push_back(atr);
+		output.push_back(out);
+	}
+}
+
 readindata::readindata(string datacon)
 {
 	ifstream myfile (datacon);
