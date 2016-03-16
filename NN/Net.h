@@ -5,8 +5,9 @@
 class Net{
 private:
 	int numOfL;       //number of layers
-	vector<Layer> layers;
+	
 public:
+	vector<Layer> layers;
 	static double learningRate;
 	void printNet();
 	Net(const vector<int> net);
@@ -16,7 +17,7 @@ public:
 	void update();                        //use ¦Ä to update weights
 
 };
-double Net::learningRate = 0.05;
+double Net::learningRate = 0.15;
 
 void Net::printNet()
 {

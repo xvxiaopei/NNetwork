@@ -28,7 +28,8 @@ void Node::printNode()
 	{
 		cout<<"w"<<i<<":"<<inputWs[i]<<" ,";
 	}
-	cout<<endl<<"Output = "<<output<<endl;
+	cout<<endl;
+	//cout<<endl<<"Output = "<<output<<endl;
 }
 
 

@@ -36,7 +36,8 @@ void readindata::getNumData()
 						cout<<attrVal[j][k]<<" :"<<(data[i][j]==attrVal[j][k]?"true":"false")<<endl;
 					}
 					system("pause");
-				}*/
+				}
+				*/
 			}
 		}
 		numdata.push_back(atr);
