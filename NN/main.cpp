@@ -81,7 +81,7 @@ void AN(string in,string out,vector<int> net)
 		do{                               
 			lastMSE= curMSE;
 			curMSE=0;
-			for(int i=0;i<div[0].numdata.size();i++)  //validation
+			for(int i=0;i<div[0].numdata.size();i++)  //training
 			{
 			//cout<<i<<": "<<a.numdata[i].size()<<endl;
 				ANN.forward(div[0].numdata[i]);
@@ -89,7 +89,7 @@ void AN(string in,string out,vector<int> net)
 				ANN.update();
 			}
 
-			for(int i=0;i<div[1].numdata.size();i++) //training
+			for(int i=0;i<div[1].numdata.size();i++) //validation
 			{
 				//cout<<i<<": "<<a.numdata[i].size()<<endl;
 				ANN.forward(div[1].numdata[i]);
